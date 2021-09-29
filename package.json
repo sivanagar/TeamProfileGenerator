@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Create a web page of team based on user input",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sivanagar/TeamProfileGenerator.git"
+  },
+  "author": "Sivan Kaplan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sivanagar/TeamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/sivanagar/TeamProfileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.5",
+    "jest": "^27.2.3"
+  }
+}
