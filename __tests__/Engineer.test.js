@@ -7,6 +7,10 @@ test('Create New Engineer', ()=>{
     expect(engineer.employeeID).toBe('123')
     expect(engineer.email).toBe('john@email.com')
     expect(engineer.github).toBe('johnsmith')
+    expect(engineer.getName()).toBe('John Smith')
+    expect(engineer.getId()).toBe('123')
+    expect(engineer.getEmail()).toBe('john@email.com')
+    expect(engineer.getGithub()).toBe('johnsmith')
+    expect(engineer.getRole()).toBe('Engineer')
 })
 
-//name, ID, email, and GitHub username
