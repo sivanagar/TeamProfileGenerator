@@ -2,12 +2,16 @@ const inquirer = require('inquirer')
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+const generateHtml = require('./src/page-template')
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 const team = {
-    manager: [],
-    engineers: [],
+    manager:[],
+    engineers:[],
     interns:[]
 }
+
+
 
 function addEmployee(data , role) {
     if (role==="manager") {
@@ -26,11 +30,21 @@ function addEmployee(data , role) {
 function checkFinish(action) {
     if (action === "F") {
         console.log("Let's Finish up");
-        console.log(getTeam())
-        //fix data 
+        writeFile(generateHtml(team))
+            .then(writeFileResponse => {
+                console.log(writeFileResponse);
+                return copyFile();
+              })
+              .then(copyFileResponse => {
+                console.log(copyFileResponse);
+              })
+              .catch(err => {
+                console.log(err);
+              });
+        
         //call generateHtml
         //create file and copy css
-        //using fs save content to dist lib.
+        
     } else {
         promptEmployee(action)
     }
@@ -90,18 +104,12 @@ function promptEmployee(role) {
     })
 }
 
-function getTeam() {
-    return [team.manager, team.engineers, team.interns]
-}
-
-
-
-
 
 console.log('==================================')
 console.log('=======Team Webpage Builder=======')
 console.log('==================================')
 
 console.log("Let's start entering the team's employees")
-//prompt manager info
+//prompt user to input manager and team info
 promptEmployee("manager")
+ 
