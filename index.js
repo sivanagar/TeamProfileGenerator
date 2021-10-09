@@ -7,24 +7,23 @@ const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 const team = []
 
+//add employee to team array
 function addEmployee(data , role) {
     if (role==="manager") {
         const manager = new Manager(data.name, data.employeeID, data.email , data.officeNumber)
-        team.push(manager)
-        //team.manager= {"name": data.name,"employeeId": data.employeeID,"email": data.email,"officeNumber": data.officeNumber}
+        team.push(manager)  
     } else if (role==="engineer") {
         const engineer = new Engineer(data.name, data.employeeID, data.email, data.github)
-        //const engineer = {"name": data.name,"employeeId": data.employeeID,"email": data.email,"github": data.github}
         team.push(engineer)
     } else if (role==="intern") {
         const intern = new Intern(data.name, data.employeeID, data.email, data.school)
-        //const intern ={"name": data.name,"employeeId": data.employeeID,"email": data.email,"school": data.school}
         team.push(intern)
     } else {
         console.error("No Employee Added")
     }
 }
 
+//check if team input finished
 function checkFinish(action) {
     if (action === "F") {
         console.log("Let's Finish up"); 
@@ -46,7 +45,7 @@ function checkFinish(action) {
     }
 }
 
-
+//prompt user to fill employee data based on role chosen
 function promptEmployee(role) {
     inquirer.prompt([
         {
@@ -94,14 +93,18 @@ function promptEmployee(role) {
                 {name:'or Finish building my team', value: 'F'}]
         }            
 
-    ]).then(employee => {
+    ])
+    .then(employee => {
         addEmployee(employee, role)
         return checkFinish(employee.action)
+    })
+    .catch(err => {
+        console.log(err)
     })
 }
 
 console.log('==================================')
-console.log('=======Team Webpage Builder=======')
+console.log('====== Team Webpage Builder ======')
 console.log('==================================')
 
 console.log("Let's start entering the team's employees")

@@ -1,7 +1,10 @@
 body {
-    background-color: #7F7C82;
-    background-image: url('./dot-grid.png');
     color: #7F7C82;
+    background-color: #fff;
+    background-image: radial-gradient(rgba(69, 22, 106, 0.15) 8%, transparent 10%);
+    background-size: 20px 20px;
+    background-position: 0 0, 20px 20px;
+    background-repeat: repeat;
 }
 
 header {
