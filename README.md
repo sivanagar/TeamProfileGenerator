@@ -18,10 +18,10 @@ An node.js app that creates an HTML file based on the user input.
 `npm install`
 
 ## Usage <br />
-After downloading the code and installing dependancies, start the app by running
- `node index.js`. 
- Answer the questions on your team members.
-
+After downloading the code and installing dependancies, start the app by running<br />
+`node index.js` <br />
+Answer the questions on your team members.<br />
+Click to view [Walkthrough Video](https://drive.google.com/uc?id=1NdTB6w7nJ7QbDsHuTTKVUSEqlorUv2Rs)
 
 
 ## Tests <br />
