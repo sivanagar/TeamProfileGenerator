@@ -5,21 +5,21 @@ const Intern = require('./lib/Intern')
 const generateHtml = require('./src/page-template')
 const { writeFile, copyFile } = require('./utils/generate-site.js');
 
-const team = {
-    manager:[],
-    engineers:[],
-    interns:[]
-}
+const team = []
 
 function addEmployee(data , role) {
     if (role==="manager") {
-        team.manager= [data.name, data.employeeID, data.email, data.officeNumber]
+        const manager = new Manager(data.name, data.employeeID, data.email , data.officeNumber)
+        team.push(manager)
+        //team.manager= {"name": data.name,"employeeId": data.employeeID,"email": data.email,"officeNumber": data.officeNumber}
     } else if (role==="engineer") {
-        const engineer = [data.name, data.employeeID, data.email, data.github]
-        team.engineers.push(engineer)
+        const engineer = new Engineer(data.name, data.employeeID, data.email, data.github)
+        //const engineer = {"name": data.name,"employeeId": data.employeeID,"email": data.email,"github": data.github}
+        team.push(engineer)
     } else if (role==="intern") {
-        const intern =[data.name, data.employeeID, data.email, data.school]
-        team.interns.push(intern)
+        const intern = new Intern(data.name, data.employeeID, data.email, data.school)
+        //const intern ={"name": data.name,"employeeId": data.employeeID,"email": data.email,"school": data.school}
+        team.push(intern)
     } else {
         console.error("No Employee Added")
     }

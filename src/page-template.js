@@ -1,103 +1,26 @@
-const Manager = require('../lib/Manager')
-
-
-function managerHtml(manager) {
-    //returns manager html block
-    return `<div class="col-sm-3">
-    <div class="card m-2 shadow">
-        <div class="card-header d-flex justify-content-between">
-            <span>Manager</span>
-            <span>#504</span>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Manager Name</h5>
-            
-            <a href="mailto:#" class="card-link"><i class="fas fa-envelope"></i> email@gmail.com
-            </a>
-            <p class="card-text"><i class="fas fa-door-closed"></i> Room 35
-            </p>
-        </div>
-    </div>
-</div>
-    ${manager}`;
-}
-
-function engineerHtml(engineers) {
-    //returns engineer html block
-    return `<div class="col-sm-3">
-    <div class="card m-2 shadow ">
-        <div class="card-header d-flex justify-content-between">
-            <span>Engineer</span>
-            <span>#504</span>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Engineer Name</h5>
-            
-            <a href="mailto:#" class="card-link"><i class="fas fa-envelope"></i> email@gmail.com
+function employeeCard(employees){
+    let cards = ``;
+    employees.map(employee => {
+        cards += `<div class="col-sm-3">
+        <div class="card m-2 shadow ">
+            <div class="card-header d-flex justify-content-between">
+                <span>${employee.getRole()}</span>
+                <span>#${employee.getId()}</span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">${employee.getName()}</h5>
+                
+                <a href="mailto:${employee.getEmail()}" class="card-link"><i class="fas fa-envelope"></i> ${employee.getEmail()}
             </a><br>
-            <a href="githublink" class="card-link"></a><i class="fab fa-github"></i> user
-        </a>
-        </div>
-    </div>
-</div>
-<div class="col-sm-3">
-    <div class="card m-2 shadow">
-        <div class="card-header d-flex justify-content-between">
-            <span>Engineer</span>
-            <span>#504</span>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Engineer Name</h5>
-            
-            <a href="mailto:#" class="card-link"><i class="fas fa-envelope"></i> email@gmail.com
-            </a><br>
-            <a href="githublink" class="card-link"></a><i class="fab fa-github"></i> user
-        </a>
-        </div>
-    </div>
-</div>
-     ${engineers}`;
-}
-
-function internHtml(interners) {
-    //returns interns html block
-    return `<div class="col-sm-3">
-    <div class="card m-2 shadow">
-        <div class="card-header d-flex justify-content-between">
-            <span>Intern</span>
-            <span>#504</span>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Intern Name</h5>
-            
-            <a href="mailto:#" class="card-link"><i class="fas fa-envelope"></i> email@gmail.com
-            </a><br>
-            <div class="card-text"></a><i class="fas fa-school"></i> School Name
+            ${employee.getSpecial()}
             </div>
         </div>
-    </div>
-</div>
-<div class="col-sm-3">
-    <div class="card m-2 shadow">
-        <div class="card-header d-flex justify-content-between">
-            <span>Intern</span>
-            <span>#504</span>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Intern Name</h5>
-            
-            <a href="mailto:#" class="card-link"><i class="fas fa-envelope"></i> email@gmail.com
-            </a><br>
-            <div class="card-text"></a><i class="fas fa-school"></i> School Name
-            </div>
-        </div>
-    </div>
-</div>
-     ${interners}`;
+    </div>`
+    })
+    return cards;
 }
 
 module.exports = team => {
-    console.log(team)
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -118,14 +41,14 @@ module.exports = team => {
             <header class="nav justify-content-center"> <h1 class="p-3"><i class="fas fa-users"></i> Team</h1></header>
             <div class="container">
                 <div class="row justify-content-center">
-                ${managerHtml(team.manager)}
+                ${employeeCard(team.filter(employee => employee.getRole() === "Manager"))}
                 </div>
                 <div class="row justify-content-center">
-                ${engineerHtml(team.engineers)}
+                ${employeeCard(team.filter(employee => employee.getRole() === "Engineer"))}
                 
                 </div>
                 <div class="row justify-content-center">
-                ${internHtml(team.interns)}
+                ${employeeCard(team.filter(employee => employee.getRole() === "Intern"))}
                 </div>
            
     </body>
