@@ -11,16 +11,14 @@ const team = {
     interns:[]
 }
 
-
-
 function addEmployee(data , role) {
     if (role==="manager") {
-        team.manager= new Manager(data.name, data.employeeID, data.email, data.officeNumber)
+        team.manager= [data.name, data.employeeID, data.email, data.officeNumber]
     } else if (role==="engineer") {
-        const engineer = new Engineer(data.name, data.employeeID, data.email, data.github)
+        const engineer = [data.name, data.employeeID, data.email, data.github]
         team.engineers.push(engineer)
     } else if (role==="intern") {
-        const intern = new Intern(data.name, data.employeeID, data.email, data.school)
+        const intern =[data.name, data.employeeID, data.email, data.school]
         team.interns.push(intern)
     } else {
         console.error("No Employee Added")
@@ -29,10 +27,12 @@ function addEmployee(data , role) {
 
 function checkFinish(action) {
     if (action === "F") {
-        console.log("Let's Finish up");
+        console.log("Let's Finish up"); 
+        //call generateHtml and create new file
         writeFile(generateHtml(team))
             .then(writeFileResponse => {
                 console.log(writeFileResponse);
+                //copy css
                 return copyFile();
               })
               .then(copyFileResponse => {
@@ -40,11 +40,7 @@ function checkFinish(action) {
               })
               .catch(err => {
                 console.log(err);
-              });
-        
-        //call generateHtml
-        //create file and copy css
-        
+              });                
     } else {
         promptEmployee(action)
     }
@@ -94,8 +90,8 @@ function promptEmployee(role) {
             name: 'action',
             choices: [
                 {name:'Add an Engineer', value: 'engineer'},
-            {name:'Add an Intern', value: 'intern'},
-            {name:'or Finish building my team', value: 'F'}]
+                {name:'Add an Intern', value: 'intern'},
+                {name:'or Finish building my team', value: 'F'}]
         }            
 
     ]).then(employee => {
@@ -103,7 +99,6 @@ function promptEmployee(role) {
         return checkFinish(employee.action)
     })
 }
-
 
 console.log('==================================')
 console.log('=======Team Webpage Builder=======')

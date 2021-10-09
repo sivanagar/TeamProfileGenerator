@@ -1,9 +1,24 @@
-const Manager = require('../lib/Manager')
-
-
-function managerHtml(manager) {
-    //returns manager html block
-    return `<div class="col-sm-3">
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Team</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        
+            <header class="nav justify-content-center"> <h1 class="p-3"><i class="fas fa-users"></i> Team</h1></header>
+            <div class="container">
+                <div class="row justify-content-center">
+                <div class="col-sm-3">
     <div class="card m-2 shadow">
         <div class="card-header d-flex justify-content-between">
             <span>Manager</span>
@@ -19,12 +34,10 @@ function managerHtml(manager) {
         </div>
     </div>
 </div>
-    ${manager}`;
-}
-
-function engineerHtml(engineers) {
-    //returns engineer html block
-    return `<div class="col-sm-3">
+    Sivan,123,sivan@,s
+                </div>
+                <div class="row justify-content-center">
+                <div class="col-sm-3">
     <div class="card m-2 shadow ">
         <div class="card-header d-flex justify-content-between">
             <span>Engineer</span>
@@ -56,12 +69,11 @@ function engineerHtml(engineers) {
         </div>
     </div>
 </div>
-     ${engineers}`;
-}
-
-function internHtml(interners) {
-    //returns interns html block
-    return `<div class="col-sm-3">
+     fool,s,,sivan
+                
+                </div>
+                <div class="row justify-content-center">
+                <div class="col-sm-3">
     <div class="card m-2 shadow">
         <div class="card-header d-flex justify-content-between">
             <span>Intern</span>
@@ -93,41 +105,8 @@ function internHtml(interners) {
         </div>
     </div>
 </div>
-     ${interners}`;
-}
-
-module.exports = team => {
-    console.log(team)
-    return `<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Team</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    
-    <body>
-        
-            <header class="nav justify-content-center"> <h1 class="p-3"><i class="fas fa-users"></i> Team</h1></header>
-            <div class="container">
-                <div class="row justify-content-center">
-                ${managerHtml(team.manager)}
-                </div>
-                <div class="row justify-content-center">
-                ${engineerHtml(team.engineers)}
-                
-                </div>
-                <div class="row justify-content-center">
-                ${internHtml(team.interns)}
+     sdd,xs,s,s
                 </div>
            
     </body>
-    </html>`;
-}
+    </html>
