@@ -1,16 +1,15 @@
 # Team Webpage Generator
-![badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
 ## Description  <br /> 
 An node.js app that creates an HTML file based on the user input.
+![image](https://user-images.githubusercontent.com/70772763/136675274-1de68bd2-d673-456e-b69d-dcbe1f3a3855.png)
+
 
 
 ## Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
-
 * [Tests](#Tests)
 * [Questions](#Questions)
 
@@ -19,15 +18,10 @@ An node.js app that creates an HTML file based on the user input.
 `npm install`
 
 ## Usage <br />
-After downloading the code and installing dependancies, start the app by running
- `node index.js`. 
- Answer the questions on your team members.
-
-## License
-
-This application is covered by the [MIT License](https://choosealicense.com/licenses/mit/) license. 
-
-
+After downloading the code and installing dependancies, start the app by running<br />
+`node index.js` <br />
+Answer the questions on your team members.<br />
+Click to view [Walkthrough Video](https://drive.google.com/uc?id=1NdTB6w7nJ7QbDsHuTTKVUSEqlorUv2Rs)
 
 
 ## Tests <br />
